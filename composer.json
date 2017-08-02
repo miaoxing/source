@@ -1,0 +1,23 @@
+{
+  "name": "miaoxing/source",
+  "description": "Miaoxing Source Plugin",
+  "keywords": [
+    "miaoxing", "source"
+  ],
+  "license": "MIT",
+  "require": {
+    "miaoxing/app": "dev-master@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Miaoxing\\Source\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MiaoxingTest\\Source\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
