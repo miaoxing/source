@@ -14,6 +14,7 @@ class Sources extends BaseController
         'new,create' => '创建',
         'edit,update' => '编辑',
         'destroy' => '删除',
+        'generateLink' => '生成链接',
     ];
 
     protected $displayPageHeader = true;
@@ -71,7 +72,7 @@ class Sources extends BaseController
         return $this->suc();
     }
 
-    public function generateLinksAction($req)
+    public function generateLinkAction($req)
     {
         $source = wei()->source()->notDeleted()->findOneById($req['id']);
 
