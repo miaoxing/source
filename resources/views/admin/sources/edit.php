@@ -22,6 +22,19 @@ $view->layout();
         </div>
       </div>
 
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="source">
+          <span class="text-warning">*</span>
+          标识
+        </label>
+
+        <div class="col-lg-4">
+          <input type="text" name="source" id="source" class="form-control" required>
+        </div>
+      </div>
+
+      <?php wei()->event->trigger('adminSourcesEdit', [$source]) ?>
+
       <div class="clearfix form-actions form-group">
         <input type="hidden" name="id" id="id">
 

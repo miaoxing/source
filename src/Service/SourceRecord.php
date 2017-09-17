@@ -25,4 +25,22 @@ class SourceRecord extends BaseModel
     protected $deletedAtColumn = 'deleted_at';
 
     protected $deletedByColumn = 'deleted_by';
+
+    protected $data = [
+        'configs' => []
+    ];
+
+    public function beforeSave()
+    {
+        parent::beforeSave();
+
+        $this['configs'] = json_encode($this['configs']);
+    }
+
+    public function afterFind()
+    {
+        parent::afterFind();
+
+        $this['configs'] = json_decode($this['configs'], true);
+    }
 }

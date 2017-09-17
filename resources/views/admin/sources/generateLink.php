@@ -15,7 +15,7 @@ $view->layout();
 
       <div class="form-group">
         <label class="col-lg-2 control-label" for="name">
-          来源名称
+          名称
         </label>
 
         <div class="col-lg-4">
@@ -24,8 +24,28 @@ $view->layout();
       </div>
 
       <div class="form-group">
+        <label class="col-lg-2 control-label" for="source">
+          标识
+        </label>
+
+        <div class="col-lg-4">
+          <p class="form-control-static" id="source"><?= $e($source['source']) ?></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="link-to">
+          选择预设链接
+        </label>
+
+        <div class="col-lg-4">
+          <p class="js-link-to form-control-static" id="link-to"></p>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label class="col-lg-2 control-label" for="url">
-          输入链接
+          输入自定义链接
         </label>
 
         <div class="col-lg-4">
@@ -59,6 +79,8 @@ $view->layout();
     </form>
   </div>
 </div>
+
+<?php require $view->getFile('@link-to/link-to/link-to.php') ?>
 
 <?= $block('js') ?>
 <script>

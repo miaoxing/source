@@ -27,9 +27,25 @@ class Sources extends BaseController
 
                 $sources
                     ->notDeleted()
-                    ->desc('id')
                     ->limit($req['rows'])
                     ->page($req['page']);
+
+                if ($req['name']) {
+                    $sources->andWhere('name LIKE ?', '%' . $req['name'] . '%');
+                }
+
+                if ($req['start_date']) {
+                    $sources->andWhere('created_at >= ?', $req['start_date']);
+                }
+
+                if ($req['end_date']) {
+                    $sources->andWhere('created_at <= ?', $req['end_date'] . ' 23:59:59');
+                }
+
+                // 排序
+                $sort = $req['sort'] ?: 'id';
+                $order = $req['order'] == 'asc' ? 'ASC' : 'DESC';
+                $sources->orderBy($sort, $order);
 
                 // 数据
                 $data = [];
