@@ -16,4 +16,14 @@ class Source extends BaseService
     {
         return wei()->sourceRecord();
     }
+
+    public function updateUser($source, $user = null)
+    {
+        $user || $user = wei()->curUser;
+
+        if (!$user['source']) {
+            $user['source'] = $source;
+            $user->save();
+        }
+    }
 }

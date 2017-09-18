@@ -83,7 +83,7 @@ $view->layout();
 </script>
 
 <script id="action-tpl" type="text/html">
-  <a href="<%= $.url('admin/sources-stats/show', {source_id: id}) %>">统计</a>
+  <a href="<%= $.url('admin/source-weekly-stats/show', {source_id: id}) %>">统计</a>
   <a href="<%= $.url('admin/sources/%s/generate-link', id) %>">生成链接</a>
   <% if (type != 1) { %>
     <a href="<%= $.url('admin/sources/%s/edit', id) %>">编辑</a>
