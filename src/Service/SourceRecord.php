@@ -34,13 +34,13 @@ class SourceRecord extends BaseModel
     {
         parent::beforeSave();
 
-        $this['configs'] = json_encode($this['configs']);
+        $this['related_ids'] = json_encode($this['related_ids']);
     }
 
     public function afterFind()
     {
         parent::afterFind();
 
-        $this['configs'] = json_decode($this['configs'], true);
+        $this['related_ids'] = json_decode($this['related_ids'], true);
     }
 }

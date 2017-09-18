@@ -12,8 +12,7 @@ class SourceLogs extends BaseController
         $source = wei()->source()->curApp()->findOne(['source' => $req['source']]);
 
         wei()->source->updateUser($source['source']);
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_VIEW,
         ]);
 

@@ -11,13 +11,21 @@ class SourceLog extends BaseService
         return wei()->sourceLogRecord();
     }
 
-    public function create($data)
+    public function create(SourceRecord $source, $data)
     {
-        wei()->sourceLog()->setAppId()->save($data + [
+        $data += [
             'user_id' => wei()->curUser['id'],
             // 使用本周第一天
             'created_date' => $this->getFirstDayOfWeek(),
-        ]);
+        ];
+
+        // 记录来源和关联的来源
+        wei()->appDb->transactional(function () use ($data, $source) {
+            wei()->sourceLog()->setAppId()->save($data + ['source_id' => $source['id']]);
+            foreach ($source['related_ids'] as $id) {
+                wei()->sourceLog()->setAppId()->save($data + ['source_id' => $id]);
+            }
+        });
     }
 
     public function getFirstDayOfWeek($now = null)

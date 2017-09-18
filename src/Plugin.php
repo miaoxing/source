@@ -42,8 +42,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => $data['score'] > 0 ? SourceLogRecord::ACTION_ADD_SCORE : SourceLogRecord::ACTION_SUB_SCORE,
             'value' => abs($data['score']),
         ]);
@@ -68,8 +67,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_CONSUME_MEMBER,
         ]);
     }
@@ -90,8 +88,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => $card['type'] == WechatCardRecord::TYPE_MEMBER_CARD ?
                 SourceLogRecord::ACTION_RECEIVE_MEMBER : SourceLogRecord::ACTION_RECEIVE_CARD,
         ]);
@@ -108,8 +105,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_CONSUME_CARD,
         ]);
     }
@@ -126,13 +122,11 @@ class Plugin extends BasePlugin
             return;
         }
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_SUBSCRIBE,
         ]);
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_NET_SUBSCRIBE,
             'value' => 1,
         ]);
@@ -149,13 +143,11 @@ class Plugin extends BasePlugin
             return;
         }
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_UNSUBSCRIBE,
         ]);
 
-        wei()->sourceLog->create([
-            'source_id' => $source['id'],
+        wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_NET_SUBSCRIBE,
             'value' => -1,
         ]);
