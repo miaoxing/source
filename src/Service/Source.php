@@ -17,6 +17,19 @@ class Source extends BaseService
         return wei()->sourceRecord();
     }
 
+    public function create($data)
+    {
+        $source = wei()->source()->findId($data['id']);
+        $source->save($data);
+
+        // 同步到二维码
+        $qrcode = wei()->weChatQrcode()->findOrInit(['sceneId' => $source['code']]);
+        $qrcode->save([
+            'name' => $source['name'],
+            'source' => static::SOURCE_ADMIN,
+        ]);
+    }
+
     public function updateUser($source, $user = null)
     {
         $user || $user = wei()->curUser;

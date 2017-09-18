@@ -81,12 +81,10 @@ class Sources extends BaseController
 
     public function updateAction($req)
     {
-        $source = wei()->source()->curApp()->notDeleted()->findId($req['id']);
-        
-        $source->fromArray($req);
+        $data = $this->request->toArray();
         // TODO code和微信授权冲突
-        $source['code'] = $req['source_code'];
-        $source->save();
+        $data['code'] = $data['source_code'];
+        wei()->source->create($data);
 
         return $this->suc();
     }
