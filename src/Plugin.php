@@ -37,7 +37,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $source = wei()->source()->curApp()->find(['source' => $user['source']]);
+        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
         if (!$source) {
             return;
         }
@@ -62,7 +62,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $source = wei()->source()->curApp()->find(['source' => $user['source']]);
+        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
         if (!$source) {
             return;
         }
@@ -78,7 +78,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $source = wei()->source()->curApp()->find(['source' => $user['source']]);
+        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
         if (!$source) {
             return;
         }
@@ -100,7 +100,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $source = wei()->source()->curApp()->find(['source' => $user['source']]);
+        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
         if (!$source) {
             return;
         }
@@ -117,7 +117,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $source = wei()->source()->curApp()->find(['source' => $user['source']]);
+        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
         if (!$source) {
             return;
         }
@@ -138,7 +138,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $source = wei()->source()->curApp()->find(['source' => $user['source']]);
+        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
         if (!$source) {
             return;
         }

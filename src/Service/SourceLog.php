@@ -23,7 +23,9 @@ class SourceLog extends BaseService
         wei()->appDb->transactional(function () use ($data, $source) {
             wei()->sourceLog()->setAppId()->save($data + ['source_id' => $source['id']]);
             foreach ($source['related_ids'] as $id) {
-                wei()->sourceLog()->setAppId()->save($data + ['source_id' => $id]);
+                if ($id) {
+                    wei()->sourceLog()->setAppId()->save($data + ['source_id' => $id]);
+                }
             }
         });
     }

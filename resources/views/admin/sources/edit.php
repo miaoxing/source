@@ -23,13 +23,13 @@ $view->layout();
       </div>
 
       <div class="form-group">
-        <label class="col-lg-2 control-label" for="source">
+        <label class="col-lg-2 control-label" for="code">
           <span class="text-warning">*</span>
           标识
         </label>
 
         <div class="col-lg-4">
-          <input type="text" name="source" id="source" class="form-control" required>
+          <input type="text" name="source_code" id="code" class="form-control" required>
         </div>
       </div>
 

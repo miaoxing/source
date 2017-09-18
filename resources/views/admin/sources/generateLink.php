@@ -29,7 +29,7 @@ $view->layout();
         </label>
 
         <div class="col-lg-4">
-          <p class="form-control-static" id="source"><?= $e($source['source']) ?></p>
+          <p class="form-control-static" id="source"><?= $e($source['code']) ?></p>
         </div>
       </div>
 

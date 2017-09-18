@@ -8,9 +8,9 @@ class Source extends BaseService
 {
     const PARAM_NAME = 'mx_source';
 
-    const TYPE_USER = 0;
+    const SOURCE_USER = 0;
 
-    const TYPE_ADMIN = 1;
+    const SOURCE_ADMIN = 1;
 
     public function __invoke()
     {
