@@ -31,19 +31,25 @@ class Sources extends BaseController
         $stat->save('sourceLogRecord', $data, 'sourceWeeklyStatRecord');
 
         // 5. 更新到总表中
-        /*foreach ($data as $row) {
-            $last = wei()->leqeeMemberChannelStat()
-                ->andWhere(['channel_id' => $row['channel_id']])
+        foreach ($data as $row) {
+            $last = wei()->sourceWeeklyStat()
                 ->desc('stat_date')
-                ->find();
-            $channel = wei()->leqeeMemberChannel()->findOrInitById($row['channel_id']);
-            $channel->save([
-                'pay_user' => $last['total_pay_user'],
-                'pay_count' => $last['total_pay_count'],
-                'pay_amount' => $last['total_pay_amount'],
-                'pay_product_quantity' => $last['total_pay_product_quantity'],
+                ->find(['source_id' => $row['source_id']]);
+            $source = wei()->source()->findOrInitById($row['source_id']);
+            $source->save([
+                'view_count' => $last['total_view_count'],
+                'view_user' => $last['total_view_user'],
+                'subscribe_user' => $last['total_subscribe_user'],
+                'unsubscribe_user' => $last['total_unsubscribe_user'],
+                'net_subscribe_value' => $last['total_net_subscribe_value'],
+                'consume_member_user' => $last['total_consume_member_user'],
+                'receive_member_count' => $last['total_receive_member_count'],
+                'receive_card_count' => $last['total_receive_card_count'],
+                'consume_card_count' => $last['total_consume_card_count'],
+                'add_score_value' => $last['total_add_score_value'],
+                'sub_score_value' => $last['total_sub_score_value'],
             ]);
-        }*/
+        }
 
         return $this->suc();
     }

@@ -134,7 +134,7 @@ class Plugin extends BasePlugin
         wei()->sourceLog->create([
             'source_id' => $source['id'],
             'action' => SourceLogRecord::ACTION_NET_SUBSCRIBE,
-            'number' => 1,
+            'value' => 1,
         ]);
     }
 
@@ -157,7 +157,16 @@ class Plugin extends BasePlugin
         wei()->sourceLog->create([
             'source_id' => $source['id'],
             'action' => SourceLogRecord::ACTION_NET_SUBSCRIBE,
-            'number' => -1, // TODO sum
+            'value' => -1,
         ]);
+    }
+
+    public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
+    {
+        $navs[] = [
+            'parentId' => 'marketing-stat',
+            'url' => 'admin/sources',
+            'name' => '来源管理',
+        ];
     }
 }

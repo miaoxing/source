@@ -50,10 +50,10 @@ $view->layout();
           <th>编号</th>
           <th>标识</th>
           <th>名称</th>
-          <th>点击数</th>
+          <th>PV</th>
           <th>关注数</th>
           <th>取关数</th>
-          <th>剩余关注数</th>
+          <th>净增关注数</th>
           <th>有消费会员数</th>
           <th>领取会员卡数</th>
           <th>领取优惠券数</th>

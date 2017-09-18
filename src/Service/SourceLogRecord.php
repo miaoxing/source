@@ -60,15 +60,10 @@ class SourceLogRecord extends BaseModel
     /**
      * @var bool
      */
-    protected $statTotal = false;
+    protected $statTotal = true;
 
     /**
      * @var array
      */
     protected $statSums = ['value'];
-
-    protected $statMap = [
-        'view_count' => 'pv',
-        'view_user' => 'uv',
-    ];
 }
