@@ -32,6 +32,9 @@ class SourceLog extends BaseService
 
     public function getFirstDayOfWeek($now = null)
     {
+        // 传入null会认为是0,默认传入当前时间
+        $now || $now = time();
+
         return date('Y-m-d', strtotime('-' . date('w', $now) . ' days', $now));
     }
 }
