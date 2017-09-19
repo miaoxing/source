@@ -43,6 +43,7 @@ class Plugin extends BasePlugin
         }
 
         wei()->sourceLog->create($source, [
+            'user_id' => $data['user_id'],
             'action' => $data['score'] > 0 ? SourceLogRecord::ACTION_ADD_SCORE : SourceLogRecord::ACTION_SUB_SCORE,
             'value' => abs($data['score']),
         ]);
