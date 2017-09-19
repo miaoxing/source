@@ -19,7 +19,7 @@ class Source extends BaseService
 
     public function create($data)
     {
-        $source = wei()->source()->findId($data['id']);
+        $source = wei()->source()->curApp()->findId($data['id']);
         $source->save($data);
 
         // 同步到二维码

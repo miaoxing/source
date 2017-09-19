@@ -1,5 +1,7 @@
 <?php
 
+use Miaoxing\Source\Service\Source;
+
 $view->layout();
 ?>
 
@@ -85,7 +87,7 @@ $view->layout();
 <script id="action-tpl" type="text/html">
   <a href="<%= $.url('admin/source-weekly-stats/show', {source_id: id}) %>">统计</a>
   <a href="<%= $.url('admin/sources/%s/generate-link', id) %>">生成链接</a>
-  <% if (code != 1) { %>
+  <% if (source != <?= Source::SOURCE_ADMIN ?>) { %>
     <a href="<%= $.url('admin/sources/%s/edit', id) %>">编辑</a>
     <a class="delete-record text-danger" href="javascript:"
       data-href="<%= $.url('admin/sources/%s/destroy', id) %>">删除</a>

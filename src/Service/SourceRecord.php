@@ -27,7 +27,7 @@ class SourceRecord extends BaseModel
     protected $deletedByColumn = 'deleted_by';
 
     protected $data = [
-        'configs' => []
+        'related_ids' => []
     ];
 
     public function beforeSave()
