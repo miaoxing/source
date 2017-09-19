@@ -84,7 +84,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $card = wei()->wechatCard()->find(['wechat_id' =>  $app->getAttr('CardId')]);
+        $card = wei()->wechatCard()->find(['wechat_id' => $app->getAttr('CardId')]);
         if (!$card) {
             return;
         }
