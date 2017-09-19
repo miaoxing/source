@@ -183,7 +183,7 @@ define([
       }
 
       var param = {};
-      param[that.paramName] = that.data.id;
+      param[that.paramName] = that.data.code;
       $result.val($.appendUrl($url.val(), param));
     }
   };
