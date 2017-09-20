@@ -23,6 +23,8 @@ class Plugin extends BasePlugin
      */
     protected $description = '用户来源管理';
 
+    protected $adminNavId = 'marketing';
+
     public function onAfterScript()
     {
         if (wei()->request['mx_source']) {
@@ -157,7 +159,7 @@ class Plugin extends BasePlugin
     public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
     {
         $navs[] = [
-            'parentId' => 'marketing-stat',
+            'parentId' => 'marketing-activities',
             'url' => 'admin/sources',
             'name' => '来源管理',
         ];
