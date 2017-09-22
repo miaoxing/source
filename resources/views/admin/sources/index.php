@@ -81,7 +81,7 @@ $view->layout();
 <?php require $view->getFile('@wechat/admin/wechatQrcode/qrcodeModal.php') ?>
 
 <script id="js-qrcode-scene-id-tpl" type="text/html">
-  <a class="js-qrcode-show" href="javascript:;" data-scene-id="<%= source %>">查看</a>
+  <a class="js-qrcode-show" href="javascript:;" data-scene-id="<%= code %>">查看</a>
 </script>
 
 <script id="action-tpl" type="text/html">
