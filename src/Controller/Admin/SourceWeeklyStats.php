@@ -17,7 +17,12 @@ class SourceWeeklyStats extends BaseController
 
     public function showAction($req)
     {
-        $source = wei()->source()->curApp()->findOneById($req['source_id']);
+        $source = wei()->source()->curApp();
+        if (isset($req['source_code'])) {
+            $source->findOne(['code' => $req['source_code']]);
+        } else {
+            $source->findOneById($req['source_id']);
+        }
 
         // 获取查询的日期范围
         $startDate = $req['start_date'] ?: date('Y-m-d', strtotime('-8 weeks'));
