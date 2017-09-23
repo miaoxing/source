@@ -90,7 +90,7 @@ class SourceWeeklyStats extends BaseController
 
         // 0 = Sunday
         if (date('w', $time) == 0) {
-            $week++;
+            ++$week;
         }
 
         return $week;
