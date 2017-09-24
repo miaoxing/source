@@ -66,7 +66,8 @@ class SourceWeeklyStats extends BaseController
                 // 3. 转换为数字
                 $stats = wei()->chart->convertNumbers($stats);
                 foreach ($stats as &$stat) {
-                    $stat['stat_week'] = $this->getWeek($stat['stat_date']) . '（' . $stat['stat_date'] . '）';
+                    $stat['stat_week'] = wei()->statV2->getWeekNumber($stat['stat_date'])
+                        . '（' . $stat['stat_date'] . '）';
                 }
 
                 return $this->suc([
@@ -76,23 +77,5 @@ class SourceWeeklyStats extends BaseController
             default:
                 return get_defined_vars();
         }
-    }
-
-    /**
-     * @param $date
-     * @return int
-     * @link https://stackoverflow.com/questions/16057039/how-to-get-weeks-starting-on-sunday
-     */
-    protected function getWeek($date)
-    {
-        $time = strtotime($date);
-        $week = intval(date('W', $time));
-
-        // 0 = Sunday
-        if (date('w', $time) == 0) {
-            ++$week;
-        }
-
-        return $week;
     }
 }
