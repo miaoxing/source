@@ -8,7 +8,7 @@ $view->layout();
 <?= $block->end() ?>
 
 <?= $block('header-actions') ?>
-<a class="btn btn-default" href="<?= $url('admin/sources') ?>">返回列表</a>
+<a class="btn btn-default" href="<?= $url('admin/sources') ?>">返回来源列表</a>
 <?= $block->end() ?>
 
 <div class="row">
