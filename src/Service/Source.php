@@ -3,6 +3,7 @@
 namespace Miaoxing\Source\Service;
 
 use miaoxing\plugin\BaseService;
+use Miaoxing\Plugin\Service\User;
 
 class Source extends BaseService
 {
@@ -30,7 +31,7 @@ class Source extends BaseService
         ]);
     }
 
-    public function updateUser($source, $user = null)
+    public function updateUser($source, User $user = null)
     {
         $user || $user = wei()->curUser;
 
@@ -38,5 +39,24 @@ class Source extends BaseService
             $user['source'] = $source;
             $user->save();
         }
+    }
+
+    /**
+     * 根据用户获取来源对象
+     *
+     * @param User|null $user
+     * @return $this|false|null
+     */
+    public function getByUser(User $user = null)
+    {
+        $user || $user = wei()->curUser;
+
+        if (!$user['source']) {
+            return;
+        }
+
+        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
+
+        return $source;
     }
 }

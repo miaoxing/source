@@ -7,6 +7,7 @@ use Miaoxing\Order\Service\Order;
 use miaoxing\plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Source\Service\SourceLogRecord;
+use Miaoxing\Source\Service\SourceRecord;
 use Miaoxing\Wechat\Service\WechatAccount;
 use Miaoxing\WechatCard\Service\WechatCardRecord;
 use Wei\WeChatApp;
@@ -113,46 +114,46 @@ class Plugin extends BasePlugin
         ]);
     }
 
-    public function onWechatUserFirstSubscribe(User $user)
+    public function onWechatSubscribe(WeChatApp $app, User $user, WechatAccount $account)
     {
-        // TODO 直接关注的情况？
+        // 触发事件时,还未执行保存来源操作,需提前设置好来源
         if (!$user['source']) {
-            return;
+            $user['source'] = $app->getScanSceneId();
         }
 
-        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
-        if (!$source) {
-            return;
-        }
-
-        wei()->sourceLog->create($source, [
-            'action' => SourceLogRecord::ACTION_SUBSCRIBE,
-        ]);
-
-        wei()->sourceLog->create($source, [
-            'action' => SourceLogRecord::ACTION_NET_SUBSCRIBE,
-            'value' => 1,
-        ]);
+        $this->recordSubscribe($user, SourceLogRecord::ACTION_SUBSCRIBE);
     }
 
-    public function onWechatUserFirstUnsubscribe(User $user)
+    public function onWechatUnsubscribe(WeChatApp $app, User $user, WechatAccount $account)
     {
-        if (!$user['source']) {
-            return;
-        }
+        $this->recordSubscribe($user, SourceLogRecord::ACTION_UNSUBSCRIBE);
+    }
 
-        $source = wei()->source()->curApp()->find(['code' => $user['source']]);
+    protected function recordSubscribe($user, $action)
+    {
+        $source = wei()->source->getByUser($user);
         if (!$source) {
             return;
         }
 
+        // 关注/取关过则不再记录
+        $sourceLog = wei()->sourceLog()->fetchColumn([
+            'source_id' => $source['id'],
+            'user_id' => $user['id'],
+            'action' => $action,
+        ]);
+        if ($sourceLog) {
+            return;
+        }
+
+        /** @var SourceRecord $source */
         wei()->sourceLog->create($source, [
-            'action' => SourceLogRecord::ACTION_UNSUBSCRIBE,
+            'action' => $action,
         ]);
 
         wei()->sourceLog->create($source, [
             'action' => SourceLogRecord::ACTION_NET_SUBSCRIBE,
-            'value' => -1,
+            'value' => $action == SourceLogRecord::ACTION_SUBSCRIBE ? 1 : -1,
         ]);
     }
 
