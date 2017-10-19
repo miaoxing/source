@@ -54,15 +54,13 @@ class Plugin extends BasePlugin
 
     public function onAsyncPostOrderPay(Order $order)
     {
-        // TODO 订单记录会员卡号
-        /** @var MemberRecord $member */
-        $member = wei()->member()->find(['user_id' => $order['id']]);
-        if (!$member) {
+        $user = $order->getUser();
+        if (!$user['source']) {
             return;
         }
 
-        $user = $member->user;
-        if (!$user['source']) {
+        $member = wei()->member->getMember($user);
+        if ($member->isNew()) {
             return;
         }
 
