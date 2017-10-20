@@ -2,7 +2,6 @@
 
 namespace Miaoxing\Source;
 
-use Miaoxing\Member\Service\MemberRecord;
 use Miaoxing\Order\Service\Order;
 use miaoxing\plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
