@@ -70,6 +70,7 @@ class Plugin extends BasePlugin
         }
 
         wei()->sourceLog->create($source, [
+            'user_id' => $user['id'],
             'action' => SourceLogRecord::ACTION_CONSUME_MEMBER,
         ]);
     }
