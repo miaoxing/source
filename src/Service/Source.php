@@ -35,10 +35,8 @@ class Source extends BaseService
     {
         $user || $user = wei()->curUser;
 
-        if (!$user['source']) {
-            $user['source'] = $source;
-            $user->save();
-        }
+        $user['source'] = $source;
+        $user->save();
     }
 
     /**
