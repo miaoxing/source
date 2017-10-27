@@ -81,7 +81,6 @@ class Plugin extends BasePlugin
             return;
         }
 
-
         if (!$user['source']) {
             return;
         }
