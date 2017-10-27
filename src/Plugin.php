@@ -76,6 +76,12 @@ class Plugin extends BasePlugin
 
     public function onWechatUserGetCard(WeChatApp $app, User $user, WechatAccount $account)
     {
+        // 还原会员卡不计入统计
+        if ($app->getAttr('IsRestoreMemberCard')) {
+            return;
+        }
+
+
         if (!$user['source']) {
             return;
         }
@@ -85,7 +91,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $card = wei()->wechatCard()->find(['wechat_id' => $app->getAttr('CardId')]);
+        $card = wei()->wechatCard->getByWechatIdFromCache($app->getAttr('CardId'));
         if (!$card) {
             return;
         }
