@@ -18,6 +18,7 @@ define([
 
   Sources.prototype.indexAction = function () {
     var $table = this.$('.js-source-table').dataTable({
+      sorting: [[0, 'desc']],
       ajax: {
         url: $.queryUrl('admin/sources.json')
       },
