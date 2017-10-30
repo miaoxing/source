@@ -62,7 +62,7 @@ $view->layout();
           <th>核销优惠券数</th>
           <th>增加积分数</th>
           <th>使用积分数</th>
-          <th>二维码</th>
+          <th>关注二维码</th>
           <th class="t-5">创建时间</th>
           <th class="t-11">操作</th>
         </tr>
