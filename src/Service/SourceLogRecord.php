@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Source\Service;
 
-use miaoxing\plugin\BaseModel;
+use Miaoxing\Plugin\BaseModel;
 
 class SourceLogRecord extends BaseModel
 {
