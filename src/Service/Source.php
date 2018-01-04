@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Source\Service;
 
-use miaoxing\plugin\BaseService;
+use Miaoxing\Plugin\BaseService;
 use Miaoxing\Plugin\Service\User;
 
 class Source extends BaseService

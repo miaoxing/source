@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Source\Service;
 
-use miaoxing\plugin\BaseService;
+use Miaoxing\Plugin\BaseService;
 
 class SourceWeeklyStat extends BaseService
 {
