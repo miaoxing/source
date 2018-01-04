@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Source\Controller\Admin;
 
-use miaoxing\plugin\BaseController;
+use Miaoxing\Plugin\BaseController;
 use Miaoxing\Source\Service\SourceRecord;
 
 class Sources extends BaseController

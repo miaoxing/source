@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Source\Controller\Cli;
 
-use miaoxing\plugin\BaseController;
+use Miaoxing\Plugin\BaseController;
 
 class Sources extends BaseController
 {

@@ -3,7 +3,7 @@
 namespace Miaoxing\Source\Controller\Admin;
 
 use DateTime;
-use miaoxing\plugin\BaseController;
+use Miaoxing\Plugin\BaseController;
 
 class SourceWeeklyStats extends BaseController
 {
