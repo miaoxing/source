@@ -25,7 +25,7 @@ class Plugin extends BasePlugin
 
     protected $adminNavId = 'marketing';
 
-    public function onAfterScript()
+    public function onBodyEnd()
     {
         if (wei()->request['mx_source']) {
             $this->display();
