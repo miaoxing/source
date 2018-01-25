@@ -134,6 +134,11 @@ class Plugin extends BasePlugin
 
     protected function recordSubscribe($user, $action)
     {
+        // 避免并发重复写入
+        if (!wei()->lock(sprintf(__METHOD__ . '-%s-%s', $user['id'], $action), 3)) {
+            return;
+        }
+
         $source = wei()->source->getByUser($user);
         if (!$source) {
             return;
