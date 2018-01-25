@@ -66,7 +66,7 @@ $view->layout();
     <table class="js-stat-table table table-center table-head-bordered">
       <thead>
       <tr>
-        <th>周（日期）</th>
+        <th>日期（周）</th>
         <th>PV</th>
         <th>关注数</th>
         <th>取关数</th>

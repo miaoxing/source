@@ -66,8 +66,8 @@ class SourceWeeklyStats extends BaseController
                 // 3. 转换为数字
                 $stats = wei()->chart->convertNumbers($stats);
                 foreach ($stats as &$stat) {
-                    $stat['stat_week'] = wei()->statV2->getWeekNumber($stat['stat_date'])
-                        . '（' . $stat['stat_date'] . '）';
+                    $stat['stat_week'] = $stat['stat_date']
+                        . '（' . wei()->statV2->getWeekNumber($stat['stat_date']) . '）';
                 }
 
                 return $this->suc([
