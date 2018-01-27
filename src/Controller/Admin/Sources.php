@@ -81,10 +81,7 @@ class Sources extends BaseController
 
     public function updateAction($req)
     {
-        $data = $this->request->toArray();
-        // TODO code和微信授权冲突
-        $data['code'] = $data['source_code'];
-        wei()->source->create($data);
+        wei()->source->create($req);
 
         return $this->suc();
     }

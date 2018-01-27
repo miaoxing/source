@@ -29,7 +29,7 @@ $view->layout();
         </label>
 
         <div class="col-lg-4">
-          <input type="text" name="source_code" id="code" class="form-control" required>
+          <input type="text" name="code" id="code" class="form-control" required>
         </div>
       </div>
 
