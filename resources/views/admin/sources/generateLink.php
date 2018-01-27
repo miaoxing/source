@@ -82,7 +82,7 @@ $view->layout();
 
 <?php require $view->getFile('@link-to/link-to/link-to.php') ?>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['plugins/source/js/admin/sources'], function (sources) {
     sources.generateLinkAction({

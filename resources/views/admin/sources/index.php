@@ -94,7 +94,7 @@ $view->layout();
   <% } %>
 </script>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['plugins/source/js/admin/sources'], function (source) {
     source.indexAction();

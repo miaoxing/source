@@ -3,7 +3,7 @@
 $view->layout();
 ?>
 
-<?= $block('css') ?>
+<?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset('assets/admin/stat.css') ?>"/>
 <?= $block->end() ?>
 
@@ -88,7 +88,7 @@ $view->layout();
 </div>
 <!-- /row -->
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require([
     'plugins/stat/js/stat',
