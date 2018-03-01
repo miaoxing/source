@@ -66,6 +66,8 @@ class Source extends BaseService
     public function getNextCode()
     {
         return wei()->source()
+                ->curApp()
+                ->notDeleted()
                 ->select('MAX(CAST(code AS UNSIGNED))')
                 ->andWhere('code > 0')
                 ->fetchColumn() + 1;
