@@ -86,6 +86,7 @@ class Sources extends BaseController
     {
         $ret = wei()->v()
             ->key('code', '标识')
+            ->required(!$req['id'])
             ->notRecordExists(wei()->source()->curApp()->notDeleted()->andWhere('id != ?', $req['id']), 'code')
             ->check($req);
         if ($ret['code'] !== 1) {
