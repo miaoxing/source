@@ -75,12 +75,23 @@ class Sources extends BaseController
     public function editAction($req)
     {
         $source = wei()->source()->curApp()->notDeleted()->findId($req['id']);
+        if ($source->isNew()) {
+            $source['code'] = wei()->source->getNextCode();
+        }
 
         return get_defined_vars();
     }
 
     public function updateAction($req)
     {
+        $ret = wei()->v()
+            ->key('code', '标识')
+            ->notRecordExists(wei()->source()->andWhere('id != ?', $req['id']), 'code')
+            ->check($req);
+        if ($ret['code'] !== 1) {
+            return $ret;
+        }
+
         wei()->source->create($req);
 
         return $this->suc();

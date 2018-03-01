@@ -29,8 +29,10 @@ $view->layout();
         </label>
 
         <div class="col-lg-4">
-          <input type="text" name="code" id="code" class="form-control" required>
+          <input type="text" name="code" id="code" class="js-readonly form-control" required>
         </div>
+
+        <label class="col-lg-6 help-text" for="code">唯一标识，保存后不可修改</label>
       </div>
 
       <?php wei()->event->trigger('adminSourcesEdit', [$source]) ?>
@@ -60,6 +62,10 @@ $view->layout();
     source.editAction({
       data: <?= $source->toJson() ?>
     });
+
+    if (source.data.id) {
+      $('.js-readonly').prop('disabled', true);
+    }
   });
 </script>
 <?= $block->end() ?>

@@ -57,4 +57,17 @@ class Source extends BaseService
 
         return $source;
     }
+
+    /**
+     * 获取当前下一个标识
+     *
+     * @return int
+     */
+    public function getNextCode()
+    {
+        return wei()->source()
+                ->select('MAX(CAST(code AS UNSIGNED))')
+                ->andWhere('code > 0')
+                ->fetchColumn() + 1;
+    }
 }
