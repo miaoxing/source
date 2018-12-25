@@ -138,56 +138,5 @@ define([
       .validate();
   };
 
-  Sources.prototype.paramName = 'mx_source';
-
-  Sources.prototype.generateLinkAction = function (options) {
-    $.extend(this, options);
-
-    var that = this;
-    var $url = $('.js-url');
-    var $result = $('.js-result');
-
-    updateUrl();
-
-    $url.change(updateUrl);
-
-    // 选择预设链接
-    this.$('.js-link-to').linkTo({
-      linkText: '请选择',
-      hide: {
-        keyword: true,
-        decorator: true
-      },
-      update: function (data) {
-        $url.val(window.location.origin + $.url(data.value));
-        updateUrl();
-      }
-    });
-
-    // 点击复制活动链接
-    this.$('.js-copy').click(function () {
-      if (!$result.val()) {
-        $.err('请先输入链接');
-        return;
-      }
-
-      $result[0].select();
-      document.execCommand('copy');
-      $.suc('复制成功');
-    });
-
-    function updateUrl() {
-      var val = $url.val();
-      if (val === '') {
-        $result.val('');
-        return;
-      }
-
-      var param = {};
-      param[that.paramName] = that.data.code;
-      $result.val($.appendUrl($url.val(), param));
-    }
-  };
-
   return new Sources();
 });
