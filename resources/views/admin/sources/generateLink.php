@@ -3,6 +3,7 @@
 use Miaoxing\Source\Service\Source;
 
 $view->layout();
+$isWxa = wei()->plugin->isInstalled('wxa');
 ?>
 
 <?= $block('header-actions') ?>
@@ -49,7 +50,8 @@ $view->layout();
         </label>
 
         <div class="col-lg-4">
-          <input type="text" class="js-url form-control" id="url" value="<?= $url->full('') ?>">
+          <input type="text" class="js-url form-control" id="url"
+            value="<?= $isWxa ? $url->url('') : $url->full('') ?>">
         </div>
       </div>
 
@@ -84,6 +86,7 @@ $view->layout();
 
 <?= $block->js() ?>
 <script>
+  var isWxa = <?= json_encode($isWxa) ?>;
   require(['linkTo'], function () {
     var generateLinkAction = function (options) {
       $.extend(this, options);
@@ -104,7 +107,7 @@ $view->layout();
           decorator: true
         },
         update: function (data) {
-          $url.val(window.location.origin + $.url(data.value));
+          $url.val($.url(data.value));
           updateUrl();
         }
       });
@@ -130,7 +133,12 @@ $view->layout();
 
         var param = {};
         param[that.paramName] = that.data.code;
-        $result.val($.appendUrl($url.val(), param));
+        var url = $.appendUrl($url.val(), param);
+        if (isWxa) {
+          url = $.appendUrl('/page/index/index', {url: url});
+        }
+
+        $result.val(url);
       }
     };
 
