@@ -2,69 +2,37 @@
 
 namespace Miaoxing\Source\Controller\Admin;
 
+use Miaoxing\Admin\Action\IndexTrait;
 use Miaoxing\Plugin\BaseController;
-use Miaoxing\Source\Service\SourceRecord;
+use Miaoxing\Plugin\BaseModelV2;
+use Miaoxing\Plugin\Service\Request;
 
 class Sources extends BaseController
 {
+    use IndexTrait;
+
     protected $controllerName = '来源管理';
 
     protected $actionPermissions = [
-        'index' => '列表',
+        'index,metadata' => '列表',
         'new,create' => '创建',
         'edit,update' => '编辑',
         'destroy' => '删除',
         'generateLink' => '生成链接',
     ];
 
-    protected $displayPageHeader = true;
-
-    public function indexAction($req)
+    public function __construct(array $options = [])
     {
-        switch ($req['_format']) {
-            case 'json':
-                $sources = wei()->source()->curApp();
+        parent::__construct($options);
 
-                $sources
-                    ->notDeleted()
-                    ->limit($req['rows'])
-                    ->page($req['page']);
-
-                if ($req['name']) {
-                    $sources->andWhere('name LIKE ?', '%' . $req['name'] . '%');
-                }
-
-                if ($req['start_date']) {
-                    $sources->andWhere('created_at >= ?', $req['start_date']);
-                }
-
-                if ($req['end_date']) {
-                    $sources->andWhere('created_at <= ?', $req['end_date'] . ' 23:59:59');
-                }
-
-                // 排序
-                $sort = $req['sort'] ?: 'id';
-                $order = $req['order'] == 'asc' ? 'ASC' : 'DESC';
-                $sources->orderBy($sort, $order);
-
-                // 数据
-                $data = [];
-                /** @var SourceRecord $source */
-                foreach ($sources->findAll() as $source) {
-                    $data[] = $source->toArray() + [
-                        ];
-                }
-
-                return $this->suc([
-                    'data' => $data,
-                    'page' => (int) $req['page'],
-                    'rows' => (int) $req['rows'],
-                    'records' => $sources->count(),
-                ]);
-
-            default:
-                return get_defined_vars();
+        if ($this->app->getAction() !== 'index') {
+            $this->displayPageHeader = true;
         }
+    }
+
+    protected function beforeIndexFind(Request $req, BaseModelV2 $models)
+    {
+        $models->reqQuery();
     }
 
     public function newAction($req)
@@ -112,5 +80,12 @@ class Sources extends BaseController
         $source->softDelete();
 
         return $this->suc();
+    }
+
+    public function metadataAction()
+    {
+        return $this->suc([
+            'columns' => wei()->source->adminColumns,
+        ]);
     }
 }

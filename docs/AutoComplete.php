@@ -1,23 +1,28 @@
 <?php
 
-namespace plugins\source\docs {
-
-    use Miaoxing\Source\Service\Source;
-    use Miaoxing\Source\Service\SourceLog;
-    use Miaoxing\Source\Service\SourceLogRecord;
-    use Miaoxing\Source\Service\SourceRecord;
-    use Miaoxing\Source\Service\SourceWeeklyStat;
-    use Miaoxing\Source\Service\SourceWeeklyStatRecord;
+namespace MiaoxingDoc\Source {
 
     /**
-     * @property    Source $source 来源服务
-     * @method      SourceRecord|SourceRecord[] source()
+     * @property    \Miaoxing\Source\Service\Source $source
+     * @method      mixed source()
      *
-     * @property    SourceLog $sourceLog 来源日志
-     * @method      SourceLogRecord|SourceLogRecord[] sourceLog()
+     * @property    \Miaoxing\Source\Service\SourceLog $sourceLog
+     * @method      mixed sourceLog()
      *
-     * @property    SourceWeeklyStat $sourceWeeklyStat 来源日志
-     * @method      SourceWeeklyStatRecord|SourceWeeklyStatRecord[] sourceWeeklyStat()
+     * @property    \Miaoxing\Source\Service\SourceLogRecord $sourceLogRecord
+     * @method      \Miaoxing\Source\Service\SourceLogRecord|\Miaoxing\Source\Service\SourceLogRecord[] sourceLogRecord()
+     *
+     * @property    \Miaoxing\Source\Service\SourceModel $sourceModel SourceModel
+     * @method      \Miaoxing\Source\Service\SourceModel|\Miaoxing\Source\Service\SourceModel[] sourceModel()
+     *
+     * @property    \Miaoxing\Source\Service\SourceRecord $sourceRecord
+     * @method      \Miaoxing\Source\Service\SourceRecord|\Miaoxing\Source\Service\SourceRecord[] sourceRecord()
+     *
+     * @property    \Miaoxing\Source\Service\SourceWeeklyStat $sourceWeeklyStat
+     * @method      mixed sourceWeeklyStat()
+     *
+     * @property    \Miaoxing\Source\Service\SourceWeeklyStatRecord $sourceWeeklyStatRecord
+     * @method      \Miaoxing\Source\Service\SourceWeeklyStatRecord|\Miaoxing\Source\Service\SourceWeeklyStatRecord[] sourceWeeklyStatRecord()
      */
     class AutoComplete
     {
@@ -27,9 +32,33 @@ namespace plugins\source\docs {
 namespace {
 
     /**
-     * @return \plugins\source\docs\AutoComplete
+     * @return MiaoxingDoc\Source\AutoComplete
      */
     function wei()
     {
     }
+
+    /** @var Miaoxing\Source\Service\Source $source */
+    $source = wei()->source;
+
+    /** @var Miaoxing\Source\Service\SourceLog $sourceLog */
+    $sourceLog = wei()->sourceLog;
+
+    /** @var Miaoxing\Source\Service\SourceLogRecord $sourceLogRecord */
+    $sourceLogRecord = wei()->sourceLogRecord;
+
+    /** @var Miaoxing\Source\Service\SourceModel $sourceModel */
+    $source = wei()->sourceModel();
+
+    /** @var Miaoxing\Source\Service\SourceModel|Miaoxing\Source\Service\SourceModel[] $sourceModels */
+    $sources = wei()->sourceModel();
+
+    /** @var Miaoxing\Source\Service\SourceRecord $sourceRecord */
+    $sourceRecord = wei()->sourceRecord;
+
+    /** @var Miaoxing\Source\Service\SourceWeeklyStat $sourceWeeklyStat */
+    $sourceWeeklyStat = wei()->sourceWeeklyStat;
+
+    /** @var Miaoxing\Source\Service\SourceWeeklyStatRecord $sourceWeeklyStatRecord */
+    $sourceWeeklyStatRecord = wei()->sourceWeeklyStatRecord;
 }

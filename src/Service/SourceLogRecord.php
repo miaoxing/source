@@ -26,6 +26,10 @@ class SourceLogRecord extends BaseModel
 
     const ACTION_CONSUME_CARD = 10;
 
+    const ACTION_ORDER = 11;
+
+    const ACTION_ORDER_AMOUNT = 12;
+
     protected $appIdColumn = 'app_id';
 
     protected $createdAtColumn = 'created_at';

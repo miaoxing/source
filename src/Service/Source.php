@@ -2,16 +2,28 @@
 
 namespace Miaoxing\Source\Service;
 
+use Miaoxing\Config\ConfigTrait;
 use Miaoxing\Plugin\BaseService;
 use Miaoxing\Plugin\Service\User;
 
+/**
+ * @property array adminColumns
+ */
 class Source extends BaseService
 {
+    use ConfigTrait;
+
     const PARAM_NAME = 'mx_source';
 
     const SOURCE_USER = 0;
 
     const SOURCE_ADMIN = 1;
+
+    protected $configs = [
+        'adminColumns' => [
+            'default' => ['view_count', 'view_user', 'order_count', 'order_amount_count'],
+        ],
+    ];
 
     public function __invoke()
     {
