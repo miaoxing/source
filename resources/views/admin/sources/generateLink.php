@@ -72,6 +72,15 @@ $isWxa = wei()->plugin->isInstalled('wxa');
             复制结果
           </button>
           &nbsp; &nbsp; &nbsp;
+
+          <?php if ($isWxa) { ?>
+            <button class="js-wxa-code-show btn btn-primary" type="button" data-path="">
+              <i class="fa fa-wechat bigger-110"></i>
+              查看小程序码
+            </button>
+            &nbsp; &nbsp; &nbsp;
+          <?php } ?>
+
           <a class="btn btn-default" href="<?= $url('admin/sources') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表
@@ -83,6 +92,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
 </div>
 
 <?php require $view->getFile('@link-to/link-to/link-to.php') ?>
+<?php require $view->getFile('@wxa-code/admin/_codeModal.php') ?>
 
 <?= $block->js() ?>
 <script>
@@ -135,10 +145,11 @@ $isWxa = wei()->plugin->isInstalled('wxa');
         param[that.paramName] = that.data.code;
         var url = $.appendUrl($url.val(), param);
         if (isWxa) {
-          url = $.appendUrl('/page/index/index', {url: url});
+          url = $.appendUrl('/pages/index/index', {url: url});
         }
 
         $result.val(url);
+        $('.js-wxa-code-show').data('path', url);
       }
     };
 
