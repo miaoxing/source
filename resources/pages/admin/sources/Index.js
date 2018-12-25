@@ -102,6 +102,8 @@ export default class extends React.Component {
   }
 
   render() {
+    const stat = this.state.statType ? (this.state.statType + '-') : '';
+
     return <RetV2 ret={this.state}>
       <PageHeader>
         <div className="pull-right">
@@ -137,7 +139,7 @@ export default class extends React.Component {
                   text: '操作',
                   headerClasses: 't-11',
                   formatter: (cell, {id}) => <Actions>
-                    <a href={app.url('admin/source-weekly-stats/show', {source_id: id})}>统计</a>
+                    <a href={app.url('admin/source-' + stat + 'stats/show', {source_id: id})}>统计</a>
                     <a href={app.url('admin/sources/%s/generate-link', id)}>生成链接</a>
                     <a href={app.curEditUrl(id)}>编辑</a>
                     <CDeleteLink id={id}/>

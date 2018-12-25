@@ -85,7 +85,8 @@ class Sources extends BaseController
     public function metadataAction()
     {
         return $this->suc([
-            'columns' => wei()->source->adminColumns,
+            'statType' => wei()->source->statType,
+            'columns' => wei()->source->columns,
         ]);
     }
 }

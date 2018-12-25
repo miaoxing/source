@@ -7,7 +7,7 @@ use Miaoxing\Plugin\BaseService;
 use Miaoxing\Plugin\Service\User;
 
 /**
- * @property array adminColumns
+ * @property array $columns
  * @property string statType
  */
 class Source extends BaseService
@@ -24,7 +24,7 @@ class Source extends BaseService
         'statType' => [
             'default' => '', // 空或weekly
         ],
-        'adminColumns' => [
+        'columns' => [
             'default' => ['viewCount', 'viewUser', 'orderCount', 'orderAmountValue'],
         ],
     ];
