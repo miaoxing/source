@@ -59,6 +59,8 @@ class SourceLogRecord extends BaseModel
         self::ACTION_RECEIVE_MEMBER => 'receive_member',
         self::ACTION_RECEIVE_CARD => 'receive_card',
         self::ACTION_CONSUME_CARD => 'consume_card',
+        self::ACTION_ORDER => 'order',
+        self::ACTION_ORDER_AMOUNT => 'order_amount',
     ];
 
     /**

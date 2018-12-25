@@ -74,6 +74,29 @@ class Plugin extends BasePlugin
         ]);
     }
 
+    public function onAsyncPostOrderConfirm(Order $order)
+    {
+        $user = $order->getUser();
+        if (!$user['source']) {
+            return;
+        }
+
+        $source = wei()->sourceModel()->find(['code' => $user['source']]);
+        if (!$source) {
+            return;
+        }
+
+        wei()->sourceLog->create($source, [
+            'user_id' => $user['id'],
+            'action' => SourceLogRecord::ACTION_ORDER,
+        ]);
+        wei()->sourceLog->create($source, [
+            'user_id' => $user['id'],
+            'action' => SourceLogRecord::ACTION_ORDER_AMOUNT,
+            'value' => $order['amount'],
+        ]);
+    }
+
     public function onWechatUserGetCard(WeChatApp $app, User $user, WechatAccount $account)
     {
         // 还原会员卡不计入统计

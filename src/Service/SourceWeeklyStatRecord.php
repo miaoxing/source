@@ -30,6 +30,8 @@ class SourceWeeklyStatRecord extends BaseModel
         'consume_card_count' => 0,
         'add_score_value' => 0,
         'sub_score_value' => 0,
+        'order_count' => 0,
+        'order_amount_value' => 0,
         'total_view_count' => 0,
         'total_view_user' => 0,
         'total_subscribe_user' => 0,
@@ -41,5 +43,7 @@ class SourceWeeklyStatRecord extends BaseModel
         'total_consume_card_count' => 0,
         'total_add_score_value' => 0,
         'total_sub_score_value' => 0,
+        'total_order_count' => 0,
+        'total_order_amount_value' => 0,
     ];
 }

@@ -21,7 +21,7 @@ class Source extends BaseService
 
     protected $configs = [
         'adminColumns' => [
-            'default' => ['view_count', 'view_user', 'order_count', 'order_amount_count'],
+            'default' => ['viewCount', 'viewUser', 'orderCount', 'orderAmountValue'],
         ],
     ];
 

@@ -48,6 +48,8 @@ class Sources extends BaseController
                 'consume_card_count' => $last['total_consume_card_count'],
                 'add_score_value' => $last['total_add_score_value'],
                 'sub_score_value' => $last['total_sub_score_value'],
+                'order_count' => $last['total_order_count'],
+                'order_amount_value' => $last['total_order_amount_value'],
             ]);
         }
 

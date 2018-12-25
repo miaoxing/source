@@ -29,7 +29,7 @@ namespace Miaoxing\Source\Metadata;
  * @property int $addScoreValue 增加积分数
  * @property int $subScoreValue 使用积分数
  * @property int $orderCount
- * @property float $orderAmountCount
+ * @property float $orderAmountValue
  */
 trait SourceTrait
 {
@@ -62,6 +62,6 @@ trait SourceTrait
         'add_score_value' => 'int',
         'sub_score_value' => 'int',
         'order_count' => 'int',
-        'order_amount_count' => 'float',
+        'order_amount_value' => 'float',
     ];
 }

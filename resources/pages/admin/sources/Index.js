@@ -21,67 +21,67 @@ export default class extends React.Component {
     let columns = [
       {
         text: 'PV',
-        dataField: 'view_count',
+        dataField: 'viewCount',
         sort: true,
       },
       {
         text: 'UV',
-        dataField: 'view_user',
+        dataField: 'viewUser',
         sort: true,
       },
       {
         text: '关注数',
-        dataField: 'subscribe_user',
+        dataField: 'subscribeUser',
         sort: true,
       },
       {
         text: '取关数',
-        dataField: 'unsubscribe_user',
+        dataField: 'unsubscribeUser',
         sort: true,
       },
       {
         text: '净增关注数',
-        dataField: 'net_subscribe_value',
+        dataField: 'netSubscribeValue',
         sort: true,
       },
       {
         text: '有消费会员数',
-        dataField: 'consume_member_user',
+        dataField: 'consumeMemberUser',
         sort: true,
       },
       {
         text: '领取会员卡数',
-        dataField: 'receive_member_count',
+        dataField: 'receiveMemberCount',
         sort: true,
       },
       {
         text: '领取优惠券数',
-        dataField: 'receive_card_count',
+        dataField: 'receiveCardCount',
         sort: true,
       },
       {
         text: '核销优惠券数',
-        dataField: 'consume_card_count',
+        dataField: 'consumeCardCount',
         sort: true,
       },
       {
         text: '增加积分数',
-        dataField: 'add_score_value',
+        dataField: 'addScoreValue',
         sort: true,
       },
       {
         text: '使用积分数',
-        dataField: 'sub_score_value',
+        dataField: 'subScoreValue',
         sort: true,
       },
       {
         text: '订单数',
-        dataField: 'order_count',
+        dataField: 'orderCount',
         sort: true,
       },
       {
         text: '订单金额',
-        dataField: 'order_amount_count',
+        dataField: 'orderAmountValue',
         sort: true,
       },
       {

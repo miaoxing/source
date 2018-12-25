@@ -11,7 +11,12 @@ class SourceLog extends BaseService
         return wei()->sourceLogRecord();
     }
 
-    public function create(SourceRecord $source, $data)
+    /**
+     * @param SourceRecord|SourceModel $source
+     * @param $data
+     * @throws \Exception
+     */
+    public function create($source, array $data)
     {
         $data += [
             'user_id' => wei()->curUser['id'],
