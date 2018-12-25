@@ -10,6 +10,7 @@ import Table from "components/Table";
 import app from "app";
 import Actions from "components/Actions";
 import CDeleteLink from "components/CDeleteLink";
+import RetV2 from "components/RetV2";
 
 export default class extends React.Component {
   state = {
@@ -93,15 +94,15 @@ export default class extends React.Component {
     ];
 
     app.get(app.actionUrl('metadata')).then(ret => {
-      columns = columns.filter(column => {
+      ret.columns = columns.filter(column => {
         return ret.columns.includes(column.dataField);
       });
-      this.setState({columns: columns});
+      this.setState(ret);
     });
   }
 
   render() {
-    return <>
+    return <RetV2 ret={this.state}>
       <PageHeader>
         <div className="pull-right">
           <Button href={app.curNewUrl()} bsStyle="success">添加</Button>
@@ -125,12 +126,12 @@ export default class extends React.Component {
               {
                 text: '名称',
                 dataField: 'name'
-              }
+              },
             ].concat(this.state.columns)
               .concat([
                 {
                   text: '创建时间',
-                  dataField: 'createdAt'
+                  dataField: 'createdAt',
                 },
                 {
                   text: '操作',
@@ -147,6 +148,6 @@ export default class extends React.Component {
           />
         </>}
       </TableProvider>
-    </>;
+    </RetV2>;
   }
 }
