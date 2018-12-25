@@ -8,6 +8,7 @@ use Miaoxing\Plugin\Service\User;
 
 /**
  * @property array adminColumns
+ * @property string statType
  */
 class Source extends BaseService
 {
@@ -20,6 +21,9 @@ class Source extends BaseService
     const SOURCE_ADMIN = 1;
 
     protected $configs = [
+        'statType' => [
+            'default' => '', // 空或weekly
+        ],
         'adminColumns' => [
             'default' => ['viewCount', 'viewUser', 'orderCount', 'orderAmountValue'],
         ],

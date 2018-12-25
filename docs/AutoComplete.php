@@ -18,6 +18,12 @@ namespace MiaoxingDoc\Source {
      * @property    \Miaoxing\Source\Service\SourceRecord $sourceRecord
      * @method      \Miaoxing\Source\Service\SourceRecord|\Miaoxing\Source\Service\SourceRecord[] sourceRecord()
      *
+     * @property    \Miaoxing\Source\Service\SourceStat $sourceStat
+     * @method      mixed sourceStat()
+     *
+     * @property    \Miaoxing\Source\Service\SourceStatRecord $sourceStatRecord
+     * @method      \Miaoxing\Source\Service\SourceStatRecord|\Miaoxing\Source\Service\SourceStatRecord[] sourceStatRecord()
+     *
      * @property    \Miaoxing\Source\Service\SourceWeeklyStat $sourceWeeklyStat
      * @method      mixed sourceWeeklyStat()
      *
@@ -55,6 +61,12 @@ namespace {
 
     /** @var Miaoxing\Source\Service\SourceRecord $sourceRecord */
     $sourceRecord = wei()->sourceRecord;
+
+    /** @var Miaoxing\Source\Service\SourceStat $sourceStat */
+    $sourceStat = wei()->sourceStat;
+
+    /** @var Miaoxing\Source\Service\SourceStatRecord $sourceStatRecord */
+    $sourceStatRecord = wei()->sourceStatRecord;
 
     /** @var Miaoxing\Source\Service\SourceWeeklyStat $sourceWeeklyStat */
     $sourceWeeklyStat = wei()->sourceWeeklyStat;

@@ -9,6 +9,36 @@ class Sources extends BaseController
     public function statAction($req)
     {
         // 1. 获取统计的时间范围
+        $today = wei()->time->today();
+        list($startDate, $endDate) = explode('~', (string) $req['date']);
+        if (!$startDate) {
+            $startDate = $today;
+        }
+        if (!$endDate) {
+            $endDate = $startDate;
+        }
+
+        $stat = wei()->statV2;
+
+        // 2. 读取各天统计数据
+        $logs = $stat->createQuery('sourceLogRecord', $startDate, $endDate);
+        $logs = $logs->fetchAll();
+
+        // 3. 按日期,编号格式化
+        $data = $stat->format('sourceLogRecord', $logs);
+
+        // 4. 记录到统计表中
+        $stat->save('sourceLogRecord', $data, 'sourceStatRecord');
+
+        // 5. 更新到总表中
+        $this->updateMain($data);
+
+        return $this->suc();
+    }
+
+    public function weeklyStatAction($req)
+    {
+        // 1. 获取统计的时间范围
         $today = wei()->sourceLog->getFirstDayOfWeek();
         list($startDate, $endDate) = explode('~', (string) $req['date']);
         if (!$startDate) {
@@ -31,6 +61,13 @@ class Sources extends BaseController
         $stat->save('sourceLogRecord', $data, 'sourceWeeklyStatRecord');
 
         // 5. 更新到总表中
+        $this->updateMain($data);
+
+        return $this->suc();
+    }
+
+    protected function updateMain($data)
+    {
         foreach ($data as $row) {
             $last = wei()->sourceWeeklyStat()
                 ->desc('stat_date')
@@ -52,7 +89,5 @@ class Sources extends BaseController
                 'order_amount_value' => $last['total_order_amount_value'],
             ]);
         }
-
-        return $this->suc();
     }
 }

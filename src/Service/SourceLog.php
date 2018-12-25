@@ -18,10 +18,15 @@ class SourceLog extends BaseService
      */
     public function create($source, array $data)
     {
+        if (wei()->source->statType == 'weekly') {
+            $date = $this->getFirstDayOfWeek();
+        } else {
+            $date = wei()->time->today();
+        }
+
         $data += [
             'user_id' => wei()->curUser['id'],
-            // 使用本周第一天
-            'created_date' => $this->getFirstDayOfWeek(),
+            'created_date' => $date,
         ];
 
         // 记录来源和关联的来源
