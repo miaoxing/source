@@ -69,7 +69,8 @@ class Sources extends BaseController
     protected function updateMain($data)
     {
         foreach ($data as $row) {
-            $last = wei()->sourceWeeklyStat()
+            // TODO week
+            $last = wei()->sourceStat()
                 ->desc('stat_date')
                 ->find(['source_id' => $row['source_id']]);
             $source = wei()->source()->findOrInitById($row['source_id']);
