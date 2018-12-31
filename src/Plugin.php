@@ -81,7 +81,7 @@ class Plugin extends BasePlugin
             return;
         }
 
-        $source = wei()->sourceModel()->find(['code' => $user['source']]);
+        $source = wei()->source()->curApp()->notDeleted()->find(['code' => $user['source']]);
         if (!$source) {
             return;
         }
