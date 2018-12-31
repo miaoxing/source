@@ -122,7 +122,7 @@ $view->layout();
           },
           {
             name: 'UV',
-            dataSource: 'user_count'
+            dataSource: 'view_user'
           }
         ],
         xAxis: {
