@@ -113,8 +113,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
       $('.js-link-to').linkTo({
         linkText: '请选择',
         hide: {
-          keyword: true,
-          decorator: true
+          keyword: true
         },
         update: function (data) {
           $url.val($.url(data.value));
