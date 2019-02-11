@@ -11,7 +11,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
 <?= $block->end() ?>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <form class="form-horizontal js-source-form" role="form" method="post">
 
       <div class="form-group">
@@ -66,7 +66,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
       </div>
 
       <div class="clearfix form-actions form-group">
-        <div class="col-lg-offset-2">
+        <div class="offset-lg-2">
           <button class="js-copy btn btn-primary" type="button">
             <i class="fa fa-copy bigger-110"></i>
             复制结果
