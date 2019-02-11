@@ -33,20 +33,20 @@ $view->layout();
     <h5 class="stat-title">趋势图</h5>
 
     <ul class="js-chart-tabs nav tab-underline">
-      <li role="presentation" class="active">
-        <a href="#view" aria-controls="view" role="tab" data-toggle="tab">访问数</a>
+      <li role="presentation" class="nav-item active">
+        <a href="#view" class="nav-link" aria-controls="view" role="tab" data-toggle="tab">访问数</a>
       </li>
-      <li role="presentation">
-        <a href="#subscribe" aria-controls="subscribe" role="tab" data-toggle="tab">关注数</a>
+      <li role="presentation" class="nav-item">
+        <a href="#subscribe" class="nav-link" aria-controls="subscribe" role="tab" data-toggle="tab">关注数</a>
       </li>
-      <li role="presentation">
-        <a href="#member" aria-controls="member" role="tab" data-toggle="tab">会员数</a>
+      <li role="presentation" class="nav-item">
+        <a href="#member" class="nav-link" aria-controls="member" role="tab" data-toggle="tab">会员数</a>
       </li>
-      <li role="presentation">
-        <a href="#card" aria-controls="card" role="tab" data-toggle="tab">卡券数</a>
+      <li role="presentation" class="nav-item">
+        <a href="#card" class="nav-link" aria-controls="card" role="tab" data-toggle="tab">卡券数</a>
       </li>
-      <li role="presentation">
-        <a href="#score" aria-controls="score" role="tab" data-toggle="tab">积分数</a>
+      <li role="presentation" class="nav-item">
+        <a href="#score" class="nav-link" aria-controls="score" role="tab" data-toggle="tab">积分数</a>
       </li>
     </ul>
     <div class="tab-content m-t no-border">
