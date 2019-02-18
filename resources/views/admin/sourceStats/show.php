@@ -40,7 +40,7 @@ $view->layout();
         <a href="#order" class="nav-link" aria-controls="subscribe" role="tab" data-toggle="tab">订单数</a>
       </li>
     </ul>
-    <div class="tab-content m-t no-border">
+    <div class="tab-content m-t border-0">
       <div role="tabpanel" class="js-chart-pane tab-pane text-center active" id="view">
         加载中...
       </div>

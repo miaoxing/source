@@ -49,7 +49,7 @@ $view->layout();
         <a href="#score" class="nav-link" aria-controls="score" role="tab" data-toggle="tab">积分数</a>
       </li>
     </ul>
-    <div class="tab-content m-t no-border">
+    <div class="tab-content m-t border-0">
       <div role="tabpanel" class="js-chart-pane tab-pane text-center active" id="view">
         加载中...
       </div>
