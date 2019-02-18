@@ -33,8 +33,8 @@ $view->layout();
     <h5 class="stat-title">趋势图</h5>
 
     <ul class="js-chart-tabs nav tab-underline">
-      <li role="presentation" class="nav-item active">
-        <a href="#view" class="nav-link" aria-controls="view" role="tab" data-toggle="tab">访问数</a>
+      <li role="presentation" class="nav-item">
+        <a href="#view" class="nav-link active" aria-controls="view" role="tab" data-toggle="tab">访问数</a>
       </li>
       <li role="presentation" class="nav-item">
         <a href="#subscribe" class="nav-link" aria-controls="subscribe" role="tab" data-toggle="tab">关注数</a>
