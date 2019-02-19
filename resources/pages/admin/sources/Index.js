@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, PageHeader} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import CNewBtn from "components/CNewBtn";
 import TableProvider from "components/TableProvider";
 import SearchForm from "components/SearchForm";
@@ -11,6 +11,7 @@ import app from "app";
 import Actions from "components/Actions";
 import CDeleteLink from "components/CDeleteLink";
 import RetV2 from "components/RetV2";
+import PageHeader from "components/PageHeader";
 
 export default class extends React.Component {
   state = {
@@ -106,10 +107,7 @@ export default class extends React.Component {
 
     return <RetV2 ret={this.state}>
       <PageHeader>
-        <div className="pull-right">
-          <Button href={app.curNewUrl()} bsStyle="success">添加</Button>
-        </div>
-        {wei.page.controllerTitle}
+        <Button href={app.curNewUrl()} bsStyle="success">添加</Button>
       </PageHeader>
 
       <TableProvider>
