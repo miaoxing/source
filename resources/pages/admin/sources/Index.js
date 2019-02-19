@@ -107,7 +107,7 @@ export default class extends React.Component {
 
     return <RetV2 ret={this.state}>
       <PageHeader>
-        <Button href={app.curNewUrl()} bsStyle="success">添加</Button>
+        <Button href={app.curNewUrl()} variant="success">添加</Button>
       </PageHeader>
 
       <TableProvider>
