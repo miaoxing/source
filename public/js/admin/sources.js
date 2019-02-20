@@ -4,7 +4,7 @@ define([
   'form',
   'plugins/app/js/validation',
   'plugins/admin/js/data-table',
-  'daterangepicker',
+  'plugins/admin/js/date-range-picker',
   'plugins/app/libs/jquery.populate/jquery.populate',
 ], function (template) {
   var Sources = function () {
