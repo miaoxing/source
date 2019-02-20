@@ -1,6 +1,6 @@
 define([
   'template',
-  'linkTo',
+  'plugins/link-to/js/link-to',
   'form',
   'plugins/app/js/validation',
   'plugins/admin/js/data-table',
