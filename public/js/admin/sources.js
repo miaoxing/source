@@ -3,7 +3,7 @@ define([
   'linkTo',
   'form',
   'validator',
-  'dataTable',
+  'plugins/admin/js/data-table',
   'daterangepicker',
   'plugins/app/libs/jquery.populate/jquery.populate',
 ], function (template) {
