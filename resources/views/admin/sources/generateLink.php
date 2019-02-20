@@ -97,7 +97,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
 <?= $block->js() ?>
 <script>
   var isWxa = <?= json_encode($isWxa) ?>;
-  require(['linkTo'], function () {
+  require(['plugins/link-to/js/link-to'], function () {
     var generateLinkAction = function (options) {
       $.extend(this, options);
 
