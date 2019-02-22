@@ -74,7 +74,7 @@ $view->layout();
 <script>
   require([
     'plugins/stat/js/stat',
-    'template',
+    plugins/app/libs/artTemplate/template.min,
     'plugins/stat/js/highcharts',
     'form',
     'plugins/admin/js/data-table',
