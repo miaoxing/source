@@ -1,5 +1,5 @@
 define([
-  plugins/app/libs/artTemplate/template.min,
+  'plugins/app/libs/artTemplate/template.min',
   'plugins/link-to/js/link-to',
   'form',
   'plugins/app/js/validation',
