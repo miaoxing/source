@@ -20,7 +20,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
         </label>
 
         <div class="col-lg-4">
-          <p class="form-control-static" id="name"><?= $e($source['name']) ?></p>
+          <p class="form-control-plaintext" id="name"><?= $e($source['name']) ?></p>
         </div>
       </div>
 
@@ -30,7 +30,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
         </label>
 
         <div class="col-lg-4">
-          <p class="form-control-static" id="source"><?= $e($source['code']) ?></p>
+          <p class="form-control-plaintext" id="source"><?= $e($source['code']) ?></p>
         </div>
       </div>
 
@@ -40,7 +40,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
         </label>
 
         <div class="col-lg-4">
-          <p class="js-link-to form-control-static" id="link-to"></p>
+          <p class="js-link-to form-control-plaintext" id="link-to"></p>
         </div>
       </div>
 
