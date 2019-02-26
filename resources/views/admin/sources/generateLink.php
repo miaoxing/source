@@ -7,7 +7,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
 ?>
 
 <?= $block('header-actions') ?>
-<a class="btn btn-default" href="<?= $url('admin/sources') ?>">返回列表</a>
+<a class="btn btn-secondary" href="<?= $url('admin/sources') ?>">返回列表</a>
 <?= $block->end() ?>
 
 <div class="row">
@@ -81,7 +81,7 @@ $isWxa = wei()->plugin->isInstalled('wxa');
             &nbsp; &nbsp; &nbsp;
           <?php } ?>
 
-          <a class="btn btn-default" href="<?= $url('admin/sources') ?>">
+          <a class="btn btn-secondary" href="<?= $url('admin/sources') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表
           </a>
