@@ -1,7 +1,7 @@
 define([
   'plugins/app/libs/artTemplate/template.min',
   'plugins/link-to/js/link-to',
-  'form',
+  'plugins/admin/js/form',
   'plugins/app/js/validation',
   'plugins/admin/js/data-table',
   'plugins/admin/js/date-range-picker',
