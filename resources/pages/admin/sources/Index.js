@@ -10,7 +10,7 @@ import Table from "components/Table";
 import app from "app";
 import Actions from "components/Actions";
 import CDeleteLink from "components/CDeleteLink";
-import RetV2 from "components/RetV2";
+import Ret from "components/Ret";
 import PageHeader from "components/PageHeader";
 
 export default class extends React.Component {
@@ -105,7 +105,7 @@ export default class extends React.Component {
   render() {
     const stat = this.state.statType ? (this.state.statType + '-') : '';
 
-    return <RetV2 ret={this.state}>
+    return <Ret ret={this.state}>
       <PageHeader>
         <Button href={app.curNewUrl()} variant="success">添加</Button>
       </PageHeader>
@@ -148,6 +148,6 @@ export default class extends React.Component {
           />
         </>}
       </TableProvider>
-    </RetV2>;
+    </Ret>;
   }
 }
